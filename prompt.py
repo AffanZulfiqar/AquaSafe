@@ -31,5 +31,14 @@ SCORING BENCHMARK EXAMPLES:
 - Poor, dark, blurry, or low-resolution image where water cannot be distinguished:
   visually_safe: 0.0, visually_risky: 0.0, image_quality: 15.0
 
+DESCRIPTION FIELD GUIDELINES:
+In the `description` field:
+1. State visual observations clearly: detail what is visible, specifically highlighting whether visual algae (filamentous, planktonic, or blue-green cyanobacteria scum), vegetation, discoloration, turbidity, foam, or floating debris are present or absent.
+2. Drinking & safety advisory: explicitly state what to look out for and emphasize that visual assessment alone can NEVER confirm water is potable or safe to drink due to invisible hazards (bacteria, Giardia/Cryptosporidium cysts, viruses, dissolved agrochemicals, or heavy metals).
+3. Outline essential purification steps to make it safe if anyone is considering consuming it (e.g., settling/filtering coarse particulates, rigorous boiling for at least 1-3 minutes, certified microfiltration down to 0.1 microns, chemical disinfection, or laboratory testing).4
+
+Make sure not to give too much of description. only a consice description.
+
 Evaluate the image objectively according to these guidelines and return only the structured WaterAssessment output.
 """
+

@@ -38,3 +38,13 @@ class WaterAssessment(BaseModel):
             "clarity, focus, and perspective) is sufficient for meaningful visual assessment."
         ),
     )
+
+    description: str = Field(
+        ...,
+        description=(
+            "Detailed observational summary explaining visible findings (including presence or absence of "
+            "visual algae, discoloration, clarity, foam, or debris), plus essential safety guidance "
+            "on what to verify and necessary treatment/purification steps (e.g. boiling, microfiltration) "
+            "if someone intends to make the water safe to drink."
+        ),
+    )

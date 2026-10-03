@@ -1,5 +1,10 @@
 import os
 import sys
+
+# Suppress verbose gRPC/absl logs before initializing Google libraries
+os.environ.setdefault("GRPC_VERBOSITY", "ERROR")
+os.environ.setdefault("GLOG_minloglevel", "2")
+
 from pathlib import Path
 from chain import water_assessment_chain
 from schemas import WaterAssessment
@@ -32,6 +37,8 @@ def main():
         print(f"  • Visually Safe Confidence:   {result.visually_safe:.1f}%")
         print(f"  • Visually Risky Confidence:  {result.visually_risky:.1f}%")
         print(f"  • Image Quality Confidence:   {result.image_quality:.1f}%")
+        print(f"\nVisual Analysis & Safety Guidance:")
+        print(f"  {result.description}")
         print("\nNote: This is a visual-only assessment and does NOT determine potability or chemical/biological safety.")
 
     except FileNotFoundError as err:
@@ -43,6 +50,7 @@ def main():
     except Exception as err:
         print(f"[Error] Assessment failed: {err}")
         sys.exit(1)
+
 
 
 if __name__ == "__main__":

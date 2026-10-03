@@ -1,4 +1,9 @@
 import os
+
+# Suppress verbose gRPC/absl warnings before Google library imports
+os.environ.setdefault("GRPC_VERBOSITY", "ERROR")
+os.environ.setdefault("GLOG_minloglevel", "2")
+
 from typing import List, Union
 from dotenv import load_dotenv
 from langchain_core.messages import BaseMessage, HumanMessage
@@ -11,6 +16,7 @@ from prompt import SYSTEM_ASSESSMENT_PROMPT
 
 # Load environment variables from .env
 load_dotenv()
+
 
 
 
