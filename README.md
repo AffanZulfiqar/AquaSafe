@@ -53,37 +53,37 @@
 ```mermaid
 flowchart TD
     %% Front‑end
-    UI[Browser (HTML/JS/CSS)]
+    UI["Browser (HTML/JS/CSS)"]
     subgraph Frontend
         UI
     end
 
     %% Backend
     subgraph Backend
-        FastAPI[FastAPI (app.py)]
-        Router[/api routes]
-        Service[Assessment Service]
-        Gemini[Gemini LLM (langchain‑google‑genai)]
-        Schemas[schemas.py (Pydantic models)]
-        Store[Observations Store (in‑memory / future DB)]
+        FastAPI["FastAPI (app.py)"]
+        Router["/api routes"]
+        Service["Assessment Service"]
+        Gemini["Gemini LLM (langchain‑google‑genai)"]
+        Schemas["schemas.py (Pydantic models)"]
+        Store["Observations Store (in‑memory / future DB)"]
     end
 
     %% External services
     subgraph External
-        OSM[OpenStreetMap Tiles]
-        Env[Env: GOOGLE_API_KEY]
+        OSM["OpenStreetMap Tiles"]
+        Env["Env: GOOGLE_API_KEY"]
     end
 
     %% Data flow
-    UI -->|Upload image| Router
+    UI -->|"Upload image"| Router
     Router --> Service
     Service --> Gemini
-    Gemini -->|Structured JSON| Schemas
+    Gemini -->|"Structured JSON"| Schemas
     Schemas --> Service
-    Service -->|Persist| Store
-    Store -->|Dashboard data| UI
-    UI -->|Map tiles| OSM
-    Service -->|Reads| Env
+    Service -->|"Persist"| Store
+    Store -->|"Dashboard data"| UI
+    UI -->|"Map tiles"| OSM
+    Service -->|"Reads"| Env
 ```
 
 **Explanation**  
